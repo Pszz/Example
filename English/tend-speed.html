@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .content {
+            font-family: cursive;
+        }
+        
+        .content div.classify:nth-child(odd) {
+            background-color: #eee;
+        }
+        
+        .menu {
+            position: fixed;
+            z-index: 999;
+            right: 20px;
+            width: 10px;
+            height:90%;
+            top: 10px;
+            bottom: 10px;
+        }        
+        .menu a {
+            display: inline-block;
+            text-decoration: none;
+            height: 25px;
+            color: #333;
+            width: 25px;
+        }
+        .menu a:visited{
+            color:#FF9800;
+        }
+        .menu a.active{
+            color:red;
+        }
+
+    </style>
+    <script src="vue.min.js"></script>
+    <script src="tend-speed.js"></script>
+</head>
+
+<body>
+    <section id="app">
+        <nav class="menu">
+            <a :href="'#' + i" v-text="i" v-for="(item,i) in items" :class="i == index&&'active'" @click="index=i" ></a>
+        </nav>
+        <div class="content">
+            <div v-for="(item,i) in items" class="classify">
+                <a :name="i">
+                    <h3 v-text="i"></h3>
+                </a>
+                <p v-for="v in item" v-text="v"></p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        new Vue({
+            data: {
+                index : "A",
+                start: 0,
+                end: 5,
+                items: EnglishList.list
+            },
+            method: {
+
+            }
+        }).$mount("#app");
+    </script>
+</body>
+
+</html>

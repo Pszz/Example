@@ -1,0 +1,173 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+11112311
+<head>
+	<meta charset="UTF-8">
+	<title>test</title>
+	<script src="vue.min.js"></script>
+	<script src="jquery-1.11.1.min.js"></script>
+	<style>
+		.multiple-box {
+			position: relative;
+			float: left;
+		}
+		
+		.multiple-prev {
+			position: absolute;
+			background-color: #fff;
+			border: 1px solid #799bd2;
+			top: 29px;
+			z-index: 9999;
+			left: 0;
+			right: 0;
+			max-height: 250px;
+			overflow-y: scroll;
+			display: none;
+			padding: 0;
+			margin: 0;
+			border-top: 0;
+		}
+		.multiple-box .groupBox{
+			width: 350px;
+			height: 25px;
+			line-height: 25px;
+			text-align: center;
+			border:1px solid #ccc;
+		}
+		.multiple-prev li {
+			height: 23px;
+			line-height: 23px;
+			border-bottom: 1px dotted #d6d6d6;
+			overflow: hidden;
+		}
+		
+		.multiple-prev li:hover {
+			background-color: #1e90ff;
+			color: #fff;
+		}
+		
+		.multiple-prev label {
+			display: block;
+			padding: 0 5px;
+		}
+		
+		.multiple-prev input[type='checkbox'] {
+			vertical-align: middle;
+			float: right;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="app">
+		<div class="multiple-box" @click="groupCk">
+			<input :value="groupName" type="text" readonly class="groupBox">
+			<ul class="multiple-prev" id="temp">
+				<template>
+					<li v-for="item in groupList">
+						<label>
+							{{ item.name }}
+							<input type="checkbox" name="groupId" @change="groupSel" :value="item.value">
+						</label>
+					</li>
+				</template>
+			</ul>
+		</div>
+	</div>
+	<script>
+		new Vue({
+			el: "#app",
+			components: {
+				zujian: {
+					template: "#test"
+				}
+			},
+			data: function () {
+				return {
+					// 层级显示内容
+					groupName: "全部",
+					//选中的id
+					groupId : [],
+					// 层级选项
+					groupList: [
+						{ name: "全部", value: -1 },
+						{ name: "黑铁VIP", value: 1 },
+						{ name: "青铜VIP", value: 2 },
+						{ name: "白银VIP", value: 3 },
+						{ name: "黄金VIP", value: 4 },
+						{ name: "钻石VIP", value: 5 },
+						{ name: "七彩VIP", value: 888 }
+					]
+				};
+			}(),
+			methods: {
+				// 层级窗口开关
+				groupCk: function (ev) {
+					var tg = $(ev.target), fn;
+					tg.next().fadeIn(200);
+					ev.stopPropagation();
+					fn = function () {
+						tg.next().fadeOut(100);
+						document.removeEventListener("click", fn);
+					};
+					document.addEventListener("click", fn);
+				},
+				// 层级选择
+				groupSel: function (ev) {
+
+					var tg = event.target, that = this,
+						list = [], listName = ["全部"],
+						nameIndex = -1, index = -1,
+						all = $(document.getElementsByName("groupId"));
+					if (tg.value == "-1") {
+						all.prop("checked", tg.checked);
+						//取消也是默认全选
+						tg.checked && all.each(function (i, v) {
+							list.push(v.value);
+						});
+
+					} else {
+						list = that.groupId;
+						listName = that.groupName ? that.groupName.split(",") : [];
+						if (listName.length === 0 || (listName.length === 1 && listName[0] == "全部" && list.length >= all.length - 1)) {
+							//全选状态被修改时
+							listName = [];
+							all.each(function (i, v) { listName.push(v.value == "-1" ? "全部" : v.parentElement.innerText); });
+						}
+						nameIndex = listName.indexOf(tg.parentElement.innerText)
+						index = list.indexOf(tg.value);
+						if (index > -1 && !tg.checked) {
+							//存在集合，取消勾选状态->从参数数组移除
+							list.splice(index, 1);
+							nameIndex > -1 && listName.splice(nameIndex, 1);
+						} else if (tg.checked) { //选中状态
+							list.push(tg.value);
+							listName.push(tg.parentElement.innerText);
+						}
+						//全选数据发生变化时，删除"全部"
+						if (list.length > 0 && list.length < all.length - 1) {
+							all.eq(0).prop("checked", false);
+							nameIndex = listName.indexOf( "全部");
+							nameIndex > -1 && listName.splice(nameIndex, 1);
+						} else {
+							listName = ["全部"];
+							list.length >= all.length - 1 && all.eq(0).prop("checked", true);
+						}
+					}
+
+					if (list[0] == "-1") { list.splice(0, 1) };
+					that.groupId = list;
+					that.groupName = listName.join(",");
+					//console.log("N:"+listName.join(",")+"\nK:"+list.join(","))
+					return true;
+				},
+				test: function () {
+					console.log(event);
+
+				}
+			}
+		});
+	</script>
+</body>
+
+</html>
