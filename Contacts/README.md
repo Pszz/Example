@@ -7,5 +7,5 @@
 + var pcode = new Contacts("通讯录数组"); //通讯录数组，对应参数(目前正在扩展中)
 + pcode.show("id&&dom");// 传入一个id或者dom，选中的通讯录数据将自动传递过去
 
-[id]: <http://www.piszz.com/Small-Projects/Contacts/>  "预览地址"
+[预览地址](http://www.piszz.com/Small-Projects/Contacts/)
 * 欢迎大家优化和扩展
