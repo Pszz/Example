@@ -1,0 +1,177 @@
+.P-Mask {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.3);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 999;
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+  transform: translateX(100%);
+}
+.P-Mask input[type='checkbox'] {
+  display: none;
+}
+.P-Multiple .P-Content input[type='checkbox'] {
+  display: inline-block;
+}
+.P-Show {
+  transform: translateX(0);
+  opacity: 1;
+}
+.P-Box {
+  background-color: #fff;
+  width: 90%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+}
+.P-Header {
+  background-color: #bbb;
+  text-align: center;
+  border: 1px solid #bbb;
+  position: fixed;
+  left: 10%;
+  right: 0;
+}
+.P-Search-Box {
+  display: block;
+  position: relative;
+  width: 99%;
+  height: 22px;
+  margin: 3px auto;
+  overflow: hidden;
+  border-radius: 3px;
+}
+.P-Search-Box .P-Search-Place {
+  position: absolute;
+  z-index: 1000;
+  font-size: 14px;
+  color: #c6c6c6;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  transition: width 0.3s ease-in-out;
+  text-align: center;
+}
+.P-Search {
+  width: 100%;
+  height: 100%;
+  border: 0 none;
+  display: block;
+  border-radius: 3px;
+  padding: 0;
+  transition: width 0.3s ease-in-out;
+  outline: none;
+}
+.P-Search-Box input ~ input {
+  display: none;
+  outline: none;
+  width: 18%;
+  border: 0 none;
+  background: none;
+  color: #2196F3;
+  height: 100%;
+  z-index: 1000;
+  line-height: 22px;
+}
+.P-Writing .P-Search {
+  width: 80%;
+  float: left;
+}
+.P-Writing .P-Search-Box input ~ input {
+  display: inline-block;
+}
+.P-Writing .P-Search-Place {
+  width: 140px;
+}
+.P-Content {
+  height: 100%;
+  overflow-y: auto;
+}
+.P-Content .P-Search-msg {
+  background-color: rgba(0, 0, 0, 0.48);
+  position: fixed;
+  top: 30%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+  border-radius: 8px;
+  color: #fff;
+  display: none;
+}
+.P-Content .P-Active {
+  background-color: #666;
+  color: #fff;
+}
+.P-Content dl {
+  margin-top: 40px;
+  margin-right: 25px;
+}
+.P-Content dt {
+  background-color: #ccc;
+  text-indent: 5px;
+}
+.P-Content dt + dd {
+  border-top: 0 none;
+}
+.P-Content dd {
+  border-top: 1px solid #eee;
+  margin: 0;
+  padding: 0;
+}
+.P-Content dd label {
+  padding: 5px 50px 5px 40px;
+  display: block;
+}
+.P-Content dd label:active {
+  background-color: #eee;
+}
+.P-Sequence {
+  position: fixed;
+  right: 0px;
+  top: 30px;
+  width: 25px;
+  text-align: center;
+  height: 86%;
+  margin: auto;
+  bottom: 0;
+}
+.P-Sequence a {
+  display: block;
+  text-decoration: none;
+}
+.P-Search-Res {
+  position: absolute;
+  top: 30px;
+  background-color: rgba(167, 167, 167, 0.4);
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+.P-Search-Show {
+  display: block;
+  background-color: #fff;
+}
+.P-Content .P-Search-Res dl {
+  margin: 0;
+}
+.P-NotFind {
+  background-color: #fff;
+}
+.P-NotFind dt {
+  margin-top: 60%;
+  background-color: #fff;
+  font-size: 20px;
+  color: #ccc;
+  text-align: center;
+}

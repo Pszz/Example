@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/core.min.js"></script>
+</head>
+
+<body>
+    <input type="button" value="打开通讯录" id="test1">
+    <input type="text" id="test2">
+    <script>
+        (function(){
+             var list = [123,321,"$$$","防守打法三大",'哈哈哈',"波比","陈晨","张三","李四","王武","刘德华","哈哈哈","小王","小李","王五","孙膑","李世民","周星星","岳云鹏","阿彪","六六六","黄乌龟","张麻袋","马岱","吕布","陈晨","张三","李四","王武","刘德华","哈哈哈","小王","小李","王五","孙膑","李世民","周星星","岳云鹏","阿彪","六六六","黄乌龟","张麻袋","马岱","吕布"];
+             var pcode = new Contacts(list);
+             document.getElementById("test1").onclick = function(){
+                pcode.show("test2");
+             }
+        }())
+
+    </script>
+</body>
+
+</html>
