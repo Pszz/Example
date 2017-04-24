@@ -1,0 +1,222 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>测试轮播</title>
+	<script type="text/javascript" src="js/jquery-1.5.1.min.js"></script>
+	<style>  
+	#slideBox{
+		width: 100%;
+		height:350px;
+		position:relative;
+		margin-top: 10%;
+		border:1px solid #ccc; 
+		overflow: hidden;
+	}
+	#slideBox .box1{
+		height:100%; 
+		float: left;
+	}
+	#slideBox .item{
+		float:left;
+		height:100%;  
+		width: 300px; 
+		padding: 0 20px; 
+		text-align:center;
+		border-right: 1px solid #ccc;
+	}
+	#slideBox .item p {
+		text-align:left;
+	}
+	#slideBox .item h3{
+		margin-top: 0;
+		margin-bottom:0;
+	}
+	#slideBox .item h3:hover { 
+		color: #3AB2C3; 
+	}
+	#slideBox .box{
+		width:1000%;
+		height:100%;
+		position:absolute;
+	}
+	#slideBox ._img{
+		width:300px;
+		height:225px;
+		} 
+	.s_box {
+		position:relative;
+		width:80%;
+		margin: 0 auto;
+	}
+	.left,.right{
+			position:absolute;
+			z-index:1000;
+			width:20px;
+			height:43px;
+			top:40%;
+			bottom:0;
+			cursor:pointer;
+	}
+	
+	.left:hover,
+	.right:hover{opacity:0.5;}
+	.left{
+		background:url(image/left.png) no-repeat center;
+		left:-5%;
+	}
+	.right{
+			background:url(image/right.png) no-repeat center;
+			right:-5%;
+		}
+	
+	</style>
+</head>
+<body>
+	<div class="s_box" style="">
+		<div class="left" id="s_left"></div>
+		<div class="right" id="s_right"></div>
+		<div id='slideBox'>
+			<div class="box" id="box">
+				<div id="box1" class="box1">
+						<div class='item'>
+								<img class="_img"  src="image/8.jpg" />
+							<h3>鸭梨山大</h3>
+							<p>这是一个黄色的鸭梨，这是一个黄色的鸭梨这是一个黄色的鸭梨这是一个黄色的鸭梨这是一个黄色的鸭梨这是一个黄色的鸭梨</p>
+						</div>
+						<div class="item">
+							<img class="_img" src="image/4.jpg" />
+							<h3>柠檬多多</h3>
+							<p>这是一个黄色的大柠檬</p>
+						</div>
+						
+						<div class='item'>
+							<img class="_img"  src="image/5.jpg" />
+							<h3>脐橙星星</h3>
+							<p>一个半脐橙</p>
+						</div>
+						
+						<div class='item'>
+							<img class="_img"  src="image/6.jpg" />
+							<h3>草莓朵朵</h3>
+							<p>一个半草莓</p>
+						</div>
+						<div class='item'>
+							<img class="_img"  src="image/7.jpg" />
+							<h3>樱桃小绿</h3>
+							<p>一对青涩的绿樱桃</p>
+						</div>
+						
+						<div class='item'>
+							<img class="_img"  src="image/10.jpg" />
+							<h3>樱桃红红</h3>
+							<p>一个个成熟的樱桃</p>
+						</div>
+						<div class='item'>
+							<img class="_img"  src="image/3.jpg" />
+							<h3>测试测试</h3>
+							<p>测试风景图</p>
+						</div>
+						<div class='item'>
+							<img class="_img"  src="image/2.jpg" />
+							<h3>测试测试</h3>
+							<p>测试风景图</p>
+						</div>
+						<div class='item'>
+							<img class="_img"  src="image/1.jpg" />
+							<h3>测试测试</h3>
+							<p>测试风景图</p>
+						</div>
+						<div class='item'>
+							<img class="_img"  src="image/9.jpg" />
+							<h3>测试测试</h3>
+							<p>测试水果图</p>
+						</div>
+				</div>
+			</div>
+		</div>		
+	
+	</div>
+<script>
+void function(){
+	/**
+	 * author:Pszz
+	 * date:2014 year
+	 **/
+    var  speed = 10,//轮播速度
+	     slideBox = $("#slideBox"),
+		 tab = $("#box"),
+		 tab1 = $("#box1"),
+		 cWidth = tab1.width(),//轮播图总宽度
+		 MyMar = Marquee();
+		tab1[0].innerHTML += tab1[0].innerHTML;
+	//计时器，无限滚动
+	function Marquee(){
+			return false;
+			clearTimeout(MyMar);
+		  var l = (parseInt(tab.css("left")) || 0);
+		  //获取绝对值再比较
+		 if(Math.abs(l) >= cWidth){
+				tab.css("left",0);
+		 }else{
+				tab.css("left",l-1);
+		 }
+		return MyMar = setTimeout(Marquee,speed);
+	}
+	//鼠标放上时：停止滚动
+	slideBox.mouseenter(function(){
+		if(flag){ //执行中防止干扰
+			return false;
+		}
+		clearTimeout(MyMar);
+	});
+	//鼠标移开时：开始滚动
+	slideBox.mouseleave(function(){
+		if(flag){
+			return false;
+		}
+		 Marquee();
+	});
+	//向左还是向右移动
+	var flag = false;
+	function animl(p){
+		if(flag){
+			return false;
+		}
+		 flag = true;
+		 clearTimeout(MyMar);//先停止动画
+		 var vLeft = parseInt(tab.css("left")) || 0; //获取当前位置
+		 var tWidth = slideBox.width(); //视口宽度
+		 var sp = 1000;//动画执行时间
+		 var sLeft =  p == "right" ? (vLeft+tWidth) : (vLeft-tWidth);//最后到达的位置
+		 var cLeft = 0;//转换位置
+		 //(实现无缝对接,防止断层)
+			 if(sLeft > 0){
+				cLeft = (cWidth - vLeft);
+				tab.css("left", -cLeft); //往前移动，则转换到对接点
+				sLeft = -(cLeft-tWidth);//更新最后到达位置
+				console.log("转移前对接点");
+			 }
+			tab.animate({
+				left : sLeft,
+				speed : sp
+			},function(){
+				 vLeft = (parseInt(tab.css("left")) || 0);//获取更新后的left
+				if(Math.abs(vLeft) > cWidth){
+					console.log("转移后对接点");
+					tab.css("left",vLeft + cWidth); //往后移动，则转换为前面位置
+				 }		
+				Marquee();
+				flag = false;
+			}); 
+	}
+	$("#s_left").click(function(){
+		animl("left");		
+	});
+	$("#s_right").click(function(){
+		animl("right");		
+	});
+}();
+</script>
+</body>
+</html>	

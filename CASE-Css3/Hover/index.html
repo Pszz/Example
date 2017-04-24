@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh_cn">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+        <meta name="keywords" content="Pszz的私人网站"/>
+		<meta name="description" content="Pszz的私人网站：用于存放个人信息,笔记,项目"/>
+        <!-- <link rel="icon" href="favicon.ico" mce_href="favicon.ico" type="image/x-icon"> -->
+        <link rel="dns-prefetch" href="//misc.360buyimg.com">  
+		<link rel="dns-prefetch" href="//img10.360buyimg.com">
+		<link rel="dns-prefetch" href="//img11.360buyimg.com">
+		<link rel="dns-prefetch" href="//img12.360buyimg.com">
+		<link rel="dns-prefetch" href="//img13.360buyimg.com">
+		<link rel="dns-prefetch" href="//img14.360buyimg.com">
+		<link rel="dns-prefetch" href="//img30.360buyimg.com">
+		<link rel="dns-prefetch" href="//www.i4season.com">
+        <title>前端code - [Pszz]</title>
+		<style>
+				._box{width:800px;margin:0 auto;}
+				.title{position:relative;margin:20px;}		
+			ul{overflow:hidden;margin:0 auto; width:800px;}
+				ul li{float:left;width:200px;height:150px;list-style:none;border:1px solid #ddd;margin:5px;position:relative;overflow:hidden;}
+				ul li img {width:100%;}
+				ul li .mask{  
+							position: absolute;
+							top: -100%;
+							left: -100%;
+							height:100%;width:100%;z-index:1;
+							background-color: rgba(0,0,0,.85);
+							background-color: #000\9;
+							filter: alpha(opacity=85);
+							transition: all 300ms ease;
+							-webkit-transition: all 300ms ease;
+							-ms-transition: all 300ms ease;
+							-moz-transition: all 300ms ease;
+						    filter: alpha(opacity=85);
+				}
+				ul li .mask h1{color:#fff;text-align:center;margin-top:28%;}
+				ul li:hover .mask{left:0;top:0;}
+				#hover-ul-1 li .mask{opacity:0;  top: 0; left: 0;transform:scale(0);}
+				#hover-ul-1 li:nth-child(2n) .mask{opacity:0; top: 0; left: 0;transform:scale(0);transform: rotateX(-90deg);}
+				#hover-ul-1 li:hover .mask{transform:scale(1);opacity:1;}
+				#hover-ul-2 li .mask{transform: rotateY(-90deg);top: 0; left: 0;}
+				#hover-ul-2 li:nth-child(2n) .mask{transform: rotateX(-90deg);}
+				#hover-ul-2 li:hover .mask{transform: rotate(0);}
+		</style>
+    </head>    
+    <body class="_main">
+			<div class="_box">
+				<!--  JS +　css3 蒙板效果-->
+				<h3 class="title">
+					JS+CSS3实现鼠标跟踪效果
+				</h3>
+				<ul id="hover-ul">
+					<li>
+						<img src="img/1.jpg" />
+						<div class="mask">
+							<h1>脐橙</h1>
+						</div>
+					</li>
+					<li>
+						<img src="img/2.jpg" />
+						<div class="mask">
+							<h1>脐橙</h1>
+						</div>
+					</li>
+					<li>
+						<img src="img/3.jpg" />
+						<div class="mask">
+							<h1>青樱桃</h1>
+						</div>
+					</li>
+					<li>
+						<img src="img/4.jpg" />
+						<div class="mask">
+							<h1>鸭梨</h1>
+						</div>
+					</li>
+					<li>
+						<img src="img/5.jpg" />
+						<div class="mask">
+							<h1>草莓</h1>
+						</div>
+					</li>
+					<li>
+						<img src="img/6.jpg" />
+						<div class="mask">
+							<h1>绿柠檬</h1>
+						</div>
+					</li>
+					<li>
+						<img src="img/7.jpg" />
+						<div class="mask">
+							<h1>红樱桃</h1>
+						</div>
+					</li>
+					<li>
+						<img src="img/6.jpg" />
+						<div class="mask">
+							<h1>绿柠檬</h1>
+						</div>
+					</li>
+					<li>
+						<img src="img/7.jpg" />
+						<div class="mask">
+							<h1>红樱桃</h1>
+						</div>
+					</li>
+				</ul>
+				<h3  class="title">旋转和缩放效果</h3>
+				<!-- 简单css3效果-1 -->
+				<ul id="hover-ul-1">
+					<li>
+						<img src="img/1.jpg" />
+						<div class="mask">
+							<h1>脐橙</h1>
+						</div>
+					</li>
+					<li>
+						<img src="img/2.jpg" />
+						<div class="mask">
+							<h1>脐橙</h1>
+						</div>
+					</li>
+					<li>
+						<img src="img/3.jpg" />
+						<div class="mask">
+							<h1>青樱桃</h1>
+						</div>
+					</li>
+				</ul>
+				<!-- 简单css3效果-2 -->
+				<ul id="hover-ul-2">
+					<li>
+						<img src="img/4.jpg" />
+						<div class="mask">
+							<h1>鸭梨</h1>
+						</div>
+					</li>
+					<li>
+						<img src="img/5.jpg" />
+						<div class="mask">
+							<h1>草莓</h1>
+						</div>
+					</li>
+					<li>
+						<img src="img/6.jpg" />
+						<div class="mask">
+							<h1>绿柠檬</h1>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<script>
+			//简单id查询
+			function $(s,fn){
+				var d =  typeof s == "string" ? document.getElementById(s) : s;
+				return typeof fn == "function" ? fn.call(d || false) : d;
+			}
+			//简单class查询
+			function $c(s,d){
+				var arr = [];
+				d = d || window;
+				if(typeof(s) == "string"){
+					if(d.getElementsByClassName){
+						arr = d.getElementsByClassName(s);
+					}else{
+						var l = d.getElementsByTagName("div");
+						 for(var i = 0; i < l.length; i++){
+							if(l[i].className.indexOf(s) > -1){
+								arr.push(l[i]);
+							}
+						 }
+					}
+					return arr;
+				}
+			}
+			//改变函数作用域和上下文
+			function $proxy(fn, context){	
+				var slice = Array.prototype.slice;
+				if (typeof context == "string") {
+                    var tmp = fn[context];
+						context = fn;
+						fn = tmp;
+                }
+                if (typeof(fn) != "function"){
+					return undefined;
+				}
+                  
+                var args = slice.call(arguments, 2), 
+					proxy = function() {
+						return fn.apply(context, args.concat(slice.call(arguments)));
+					};
+                return proxy;
+			}
+			//创建on事件
+			function $on(d,e,fn){
+				if(d && typeof(fn) == "function"){
+					d.attachEvent ? d.attachEvent("on" + e, fn) : d.addEventListener(e, fn, false);
+				}
+				return d;
+			}
+			//构造函数
+			function _hover(){
+				var c = function(){
+					this.$parent = $("hover-ul");
+					this.option = {bWidth:200,bHeight:150}
+				};
+				c.fn = c.prototype;
+				c.fn.init = function(){
+					this._init();
+				}
+				c.fn._init = function(){
+					var list = this.$parent.getElementsByTagName("li");
+					for(var i = 0; i < list.length; i++){
+						$on(list[i],"mouseenter",$proxy(this.maskSlideIn,this));
+						$on(list[i],"mouseleave",$proxy(this.maskSlideOut,this));
+					}
+				}
+				c.fn.maskSlideIn = function(ev){
+					 ev =  ev || event || window.event;
+					var mask = $c("mask",ev.currentTarget)[0];
+					this.slide("",mask);
+					
+				}
+				c.fn.maskSlideOut = function(ev){
+					ev =  ev || event || window.event;
+					var mask = $c("mask",ev.currentTarget)[0];
+					var sli = this.getDirection(ev);
+					console.log(sli);
+					this.slide(sli,mask);
+				}
+				/**
+				 * 返回位置 ↓ ↓ 示意图
+				 *
+				 *   左上   上   右上
+				 *   左           右
+				 *   左下   下   右下 
+				 **/
+				c.fn.getDirection = function(ev){
+					var g = "",mm = this.getDomPosition(ev),xy = this.option;
+					var w = (xy.bWidth / 10).toFixed(2);//获取宽度的1/10
+					var h = (xy.bHeight / 10).toFixed(2);//获取高度的1/10
+					//如示意图所示位置
+					var up = mm.y < h*2,		 //少于当前高度20%位置 为top
+						left = mm.x < w*2,  //少于当前宽度20%位置 为left
+						right = mm.x > w*8, //超过当前宽度80%位置 为right
+						down = mm.y > h*8;  //超过当前高度80%位置 为bottom
+					if(up){
+						g = "up";  //上
+						if(left){
+							g = "leftUp"; //左上
+						}else if(right){
+							g = "rightUp"; //右上
+						}
+					}else if(left){
+						g = "left";  //左
+						if(down){
+							g = "leftDown";	//左下
+						}
+					}else if(right){
+						g = "right"; //右
+						if(down){
+							g = "rightDown";	//右下
+						}
+					}else{
+						g = "down";   //默认从下方出现
+					}
+					return g;
+				}
+				/*
+				c.fn.getMousePosition = function(ev){
+					return {x : ev.pageX, y : ev.pageY};
+				}
+				*/
+				c.fn.getDomPosition = function(d){
+					var mm = {x:d.offsetX,y:d.offsetY}; //鼠标相对 li的位置
+					//var md = {x:d.pageX,y:d.pageY}; //鼠标相对 整个页面的位置
+					return mm;
+				}
+				 c.fn.slide = function(e, d) {
+					var css = "";
+					switch (e) {
+						case "up": //上
+							css = "left: 0;top: -100%";
+							break;
+						case "down": //下
+							css = "left: 0;top: 100%";
+							break;
+						case "left"://左
+							css = "left: -100%;top: 0";
+							break;
+						case "right": //右
+							css = "left: 100%;top: 0";
+							break;
+						case "leftUp": //左上
+							css = "left:-100%;top:-100%";
+							break;
+						case "rightUp": //右上
+							css = "left:100%;top:-100%";
+							break;
+						case "leftDown": //左下
+							css = "left:-100%;top:100%;";
+							break;
+						case "rightDown": //右下
+							css = "left:100%;top:100%;";
+							break;
+						default:
+							css = "left: 0;top: 0";
+							break;
+					}
+					d.style.cssText = css;
+				};
+				return new c();
+			}
+			document.attachEvent ? document.attachEvent("onreadystatechange", function(){
+				if(document.readyState == "complete" || document.readyState == "loaded"){
+					_hover().init();
+				}
+			}) : document.addEventListener("DOMContentLoaded", _hover().init(), false);			
+		</script>
+    </body>
+</html>
