@@ -152,8 +152,7 @@ void function(){
 		tab1[0].innerHTML += tab1[0].innerHTML;
 	//计时器，无限滚动
 	function Marquee(){
-			return false;
-			clearTimeout(MyMar);
+		  clearTimeout(MyMar);
 		  var l = (parseInt(tab.css("left")) || 0);
 		  //获取绝对值再比较
 		 if(Math.abs(l) >= cWidth){

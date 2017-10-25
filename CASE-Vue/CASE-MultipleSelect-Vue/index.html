@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>test</title>
+	<title>下拉框多选</title>
 	<script src="vue.min.js"></script>
 	<script src="jquery-1.11.1.min.js"></script>
 	<style>
@@ -61,6 +61,7 @@
 	<div id="app">
 		<div class="multiple-box" @click="groupCk">
 			<input :value="groupName" type="text" readonly class="groupBox">
+			<i>(不选择默认为全选)</i>
 			<ul class="multiple-prev" id="temp">
 				<template>
 					<li v-for="item in groupList">
