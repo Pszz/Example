@@ -34,10 +34,7 @@
 			border:1px solid #ccc;
 		}
 		.multiple-prev li {
-			height: 23px;
-			line-height: 23px;
 			border-bottom: 1px dotted #d6d6d6;
-			overflow: hidden;
 		}
 		
 		.multiple-prev li:hover {
@@ -60,8 +57,7 @@
 <body>
 	<div id="app">
 		<div class="multiple-box" @click="groupCk">
-			<input :value="groupName" type="text" readonly class="groupBox">
-			<i>(不选择默认为全选)</i>
+			<input :value="groupName" type="text" readonly class="groupBox">		
 			<ul class="multiple-prev" id="temp">
 				<template>
 					<li v-for="item in groupList">
@@ -114,7 +110,6 @@
 				},
 				// 层级选择
 				groupSel: function (ev) {
-
 					var tg = event.target, that = this,
 						list = [], listName = ["全部"],
 						nameIndex = -1, index = -1,
