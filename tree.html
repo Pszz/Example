@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 正推树
+    !function () {
+      var tree = [
+        { id: 0 },
+        { id: 1, pid: 0 },
+        { id: 2, pid: 0},
+        { id: 3, pid: 1 },
+        { id: 4, pid: 1 },
+        { id: 5, pid: 1 },
+        { id: 6, pid: 3 }
+      ]
+      var treeMaps = tree.reduce(function (prev, next) {
+        prev[next.id] = next
+        return prev
+      }, {})
+      // 以下代码等同上段代码
+      // var treeMaps = {}
+      // tree.forEach(function (value, index) {
+      //   treeMaps[value.id] = value
+      // })
+      var treeData = tree.filter(function (val) {
+        let parent = treeMaps[val.pid]
+        if (parent !== undefined) {
+          if (parent.children === undefined) {
+            parent.children = []
+          }
+          parent.children.push(val)
+          return false
+        } else {
+          return true
+        }
+      })
+      // 以下代码等同上段代码
+      // var treeData = []
+      // tree.forEach(function (value, index) {
+      //   var parent = treeMaps[value.pid]
+      //   if (parent !== undefined) {
+      //     if (parent.children === undefined) {
+      //       parent.children = []
+      //     }
+      //     parent.children.push(value)
+      //   } else {
+      //     treeData.push(value)
+      //   }
+      // })
+      // 运行结果
+      console.log(treeData)
+    }()
+    // 逆推树
+    !function () {
+      var tree = [
+        {
+          "id": 0,
+          "children": [
+            {
+              "id": 1,
+              "children": [
+                {
+                  "id": 3,
+                  "children": [{ "id": 5 }]
+                },
+                { "id": 4 }
+              ]
+            },
+            { "id": 2 }
+          ]
+        }
+      ]
+      // 递归成一维数据
+      function loop(put, out, pid) {
+        out || (out = {})
+        put.forEach((v) => {
+          if (pid !== undefined) {
+            v.pid = pid
+          }
+          out[v.id] = v
+          if (Array.isArray(v.children)) {
+            loop(v.children, out, v.id)
+            delete v.children
+          }
+        })
+        return out
+      }
+      let put = loop(tree)
+      // 运行结果
+      console.log(put)
+      // 根据节点ID查找对应节点
+      console.log(findChain(3, put))
+    }()
+    // 查找节点链(从自身查找到根节点)
+    function findChain(id, maps) {
+      // 目标节点
+      var node = maps[id], putArray = []
+      // 向上递归
+      function upLoop(n) {
+        if (n !== undefined) {
+          if (n.pid !== undefined) {
+            upLoop(maps[n.pid])
+          }
+          putArray.push(n)
+        }
+      }
+      upLoop(node)
+      return putArray
+    }
+  </script>
+</body>
+
+</html>
