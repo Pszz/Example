@@ -1,0 +1,43 @@
+{
+  // go
+  "files.autoSave": "onFocusChange",
+  "go.buildOnSave": true,
+  "go.lintOnSave": true,
+  "go.vetOnSave": true,
+  "go.buildFlags": [],
+  "go.lintFlags": [],
+  "go.vetFlags": [],
+  "go.useCodeSnippetsOnFunctionSuggest": false,
+  "go.formatOnSave": false,
+  "go.formatTool": "goreturns",
+  "go.goroot": "D:\\Go",
+  "go.gopath": "D:\\GOPATH",
+  //  web 相关
+  "workbench.startupEditor": "welcomePage",
+  "vetur.format.defaultFormatter.js": "vscode-typescript",
+  "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "editor.tabSize": 2,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "html",
+    "vue",
+    {
+      "language": "html",
+      "autoFix": true
+    }
+  ],
+  "eslint.autoFixOnSave": true, // 是否格式化保存
+  "vetur.format.defaultFormatter.html": "js-beautify-html", // 格式化vue中的template
+  // 是否强制vue必须要v-bind:
+  "vetur.validation.template": false,
+  "autoprefixer.browsers": [
+    "last 10 versions",
+    "> 5%"
+  ],
+  "git.ignoreMissingGitWarning": true,
+  "cssrem.rootFontSize": 100
+}
