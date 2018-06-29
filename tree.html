@@ -12,49 +12,50 @@
   <script>
     // 正推树
     !function () {
+	/*
       var tree = [
         { id: 0 },
-        { id: 1, pid: 0 },
-        { id: 2, pid: 0},
-        { id: 3, pid: 1 },
-        { id: 4, pid: 1 },
-        { id: 5, pid: 1 },
-        { id: 6, pid: 3 }
+        { id: 1, parentId: 0 },
+        { id: 2, parentId: 0 },
+        { id: 3, parentId: 1 },
+        { id: 4, parentId: 1 },
+        { id: 5, parentId: 1 },
+        { id: 6, parentId: 3 }
       ]
-      var treeMaps = tree.reduce(function (prev, next) {
-        prev[next.id] = next
-        return prev
-      }, {})
-      // 以下代码等同上段代码
-      // var treeMaps = {}
-      // tree.forEach(function (value, index) {
-      //   treeMaps[value.id] = value
-      // })
-      var treeData = tree.filter(function (val) {
-        let parent = treeMaps[val.pid]
-        if (parent !== undefined) {
-          if (parent.children === undefined) {
-            parent.children = []
-          }
-          parent.children.push(val)
-          return false
-        } else {
-          return true
+	  */
+    // 原始数据
+    var tree = [
+      { id: 3, name: '福田区', parentId: 2 },
+      { id: 1, name: '广东省', parentId: null },
+      { id: 2, name: '深圳市', parentId: 1 },
+      { id: 4, name: '广州市', parentId: 1 }
+    ]
+
+    // 节点map映射
+    var treeMaps = {}
+
+    // 转化数据
+    var treeData = tree.filter(function (val) {
+      // 单个节点
+      let node = treeMaps[val.id]
+      if (node) {
+        val.children = node.children
+        treeMaps[val.id] = val
+      }
+      treeMaps[val.id] = val
+      if (val.parentId !== null) {
+        let parent = treeMaps[val.parentId]
+        if (parent === undefined) {
+          parent = treeMaps[val.parentId] = {}
         }
-      })
-      // 以下代码等同上段代码
-      // var treeData = []
-      // tree.forEach(function (value, index) {
-      //   var parent = treeMaps[value.pid]
-      //   if (parent !== undefined) {
-      //     if (parent.children === undefined) {
-      //       parent.children = []
-      //     }
-      //     parent.children.push(value)
-      //   } else {
-      //     treeData.push(value)
-      //   }
-      // })
+        if (parent.children === undefined) {
+          parent.children = []
+        }
+        parent.children.push(val)
+      }
+      return val.parentId === null
+    })
+
       // 运行结果
       console.log(treeData)
     }()
@@ -79,11 +80,11 @@
         }
       ]
       // 递归成一维数据
-      function loop(put, out, pid) {
+      function loop(put, out, parentId) {
         out || (out = {})
         put.forEach((v) => {
-          if (pid !== undefined) {
-            v.pid = pid
+          if (parentId !== undefined) {
+            v.parentId = parentId
           }
           out[v.id] = v
           if (Array.isArray(v.children)) {
@@ -106,8 +107,8 @@
       // 向上递归
       function upLoop(n) {
         if (n !== undefined) {
-          if (n.pid !== undefined) {
-            upLoop(maps[n.pid])
+          if (n.parentId !== undefined) {
+            upLoop(maps[n.parentId])
           }
           putArray.push(n)
         }
