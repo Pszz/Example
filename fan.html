@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .box {
+      height: 100px;
+      width: 100px;
+      border-radius: 50%;
+      position: relative;
+      z-index: 0;
+      overflow: hidden;
+      background-color: red;
+    }
+
+    .line {
+      height: 1px;
+      width: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      background-color: #fff;
+      z-index: 2;
+    }
+
+    .line::before {
+      content: ' ';
+      height: 1px;
+      width: 100%;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      background-color: #fff;
+      z-index: 2;
+      transform: rotate(-120deg);
+      transform-origin: left;
+    }
+
+    .line::after {
+      content: ' ';
+      height: 1px;
+      width: 100%;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      background-color: #fff;
+      z-index: 2;
+      transform: rotate(-240deg);
+      transform-origin: left;
+    }
+
+    .box::after {
+      content: '语文';
+      background-color: #3395ae;
+      position: absolute;
+      z-index: 1;
+      height: 90%;
+      width: 90%;
+      border-radius: 50%;
+      margin: auto;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      line-height: 90px;
+      text-align: center;
+      color: #fff;
+    }
+
+    .one,
+    .two,
+    .three {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: -1;
+      clip: rect(0, 100px, 50px, 0);
+    }
+
+    .one {
+      background-color: orange;
+    }
+
+    .two {
+      background-color: green;
+      transform: rotate(-120deg);
+    }
+
+    .three {
+      background-color: red;
+      clip: rect(0, 100px, 50px, 50px);
+      transform: rotate(-240deg);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <!-- <div class="line"></div> -->
+    <div class="one"></div>
+    <div class="two"></div>
+    <div class="three"></div>
+  </div>
+</body>
+
+</html>
