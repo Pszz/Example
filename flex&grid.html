@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      /* 通用样式 */
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      li {
+        list-style: none;
+      }
+      .center {
+        background-color: #99c3ff;
+      }
+      .title {
+        height: 50px;
+        background-color: #e7bdf3;
+      }
+      .list li:nth-child(1) {
+        background-color: #fb7293;
+      }
+      .list li:nth-child(2) {
+        background-color: #ff9f7e;
+      }
+      .list li:nth-child(3) {
+        background-color: #ffdb5c;
+      }
+      .list li:nth-child(4) {
+        background-color: #9fe7b9;
+      }
+      .list li:nth-child(5) {
+        background-color: #32c5e9;
+      }
+      .list li:nth-child(6) {
+        background-color: #36a3db;
+      }
+      /* Flex 布局 */
+      .flex-box {
+        width: 300px;
+        color: #fff;
+        text-align: center;
+      }
+      .flex-box .title {
+        height: 50px;
+      }
+      .flex-box .content {
+        padding-top: 8px;
+        display: flex;
+      }
+      .flex-box .center {
+        flex-basis: 50px;
+        margin: 0 5px 8px;
+      }
+      .flex-box .list {
+        flex: 1;
+      }
+      .flex-box .list li {
+        height: 50px;
+        margin-bottom: 8px;
+      }
+
+      /* Grid 布局 */
+      .grid-box {
+        display: grid;
+        grid-template-columns: 300px;
+        text-align: center;
+        color: #fff;
+        grid-row-gap: 8px;
+      }
+      .grid-box .content {
+        display: grid;
+        grid-template-columns: 120px 50px 120px;
+        grid-column-gap: 5px;
+      }
+      .grid-box .list {
+        display: grid;
+        grid-auto-rows: 50px;
+        grid-row-gap: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- S Flex 布局 -->
+    <div class="flex-box">
+      <div class="title">救护车展区</div>
+      <div class="content">
+        <ul class="list">
+          <li>S1</li>
+          <li>S2</li>
+          <li>S3</li>
+          <li>S4</li>
+          <li>S5</li>
+          <li>S6</li>
+        </ul>
+        <div class="center">连廊</div>
+        <ul class="list">
+          <li>N1</li>
+          <li>N2</li>
+          <li>N3</li>
+          <li>N4</li>
+          <li>N5</li>
+          <li>N6</li>
+        </ul>
+      </div>
+    </div>
+    <!-- E Flex 布局 -->
+    <br />
+    <hr />
+    <br />
+    <!-- S Grid 布局 -->
+    <div class="grid-box">
+      <div class="title">救护车展区</div>
+      <div class="content">
+        <ul class="list">
+          <li>S1</li>
+          <li>S2</li>
+          <li>S3</li>
+          <li>S4</li>
+          <li>S5</li>
+          <li>S6</li>
+        </ul>
+        <div class="center">连廊</div>
+        <ul class="list">
+          <li>N1</li>
+          <li>N2</li>
+          <li>N3</li>
+          <li>N4</li>
+          <li>N5</li>
+          <li>N6</li>
+        </ul>
+      </div>
+    </div>
+    <!-- E Grid 布局 -->
+  </body>
+</html>
