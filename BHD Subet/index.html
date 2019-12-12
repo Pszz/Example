@@ -1,0 +1,80 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>BHD监控</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        padding: 20px;
+      }
+      .price {
+        font-size: 26px;
+      }
+      .price dd {
+        font-weight: bold;
+        font-size: 60px;
+      }
+      .price i {
+        font-size: 20px;
+        font-style: inherit;
+      }
+      .buy-list {
+        display: flex;
+        width: 500px;
+        margin-top: 20px;
+        border: 1px solid #00bcd4;
+        text-align: center;
+      }
+      .buy-list dl {
+        flex: 1;
+        font-weight: bold;
+      }
+      .buy-list dl:first-child {
+        border-right: 1px solid #00bcd4;
+      }
+      .buy-list dt {
+        padding: 10px 0;
+      }
+      .buy-list dd {
+        border-top: 1px solid #00bcd4;
+        padding: 10px 0;
+        text-align: left;
+      }
+      .buy-list dd:nth-child(2) {
+        background-color: rgba(255, 235, 59, 0.55);
+        font-weight: bold;
+        font-size: 16px;
+      }
+      .up {
+        color: #12af50;
+      }
+      .dw {
+        color: #de211d;
+      }
+      .orgin {
+        text-align: center;
+        color: #666;
+        padding: 10px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <dl class="price">
+      <dt>当前BHD价格</dt>
+      <dd id="J_price" class="up">Loading...</dd>
+    </dl>
+    <div class="buy-list">
+      <!-- 卖单 -->
+      <dl class="dw" id="J_dw"></dl>
+      <!-- 买单 -->
+      <dl class="up" id="J_up"></dl>
+    </div>
+    <p class="orgin">数据来源于：www.aex.plus</p>
+    <script src="./index.min.js"></script>
+  </body>
+</html>

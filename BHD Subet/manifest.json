@@ -1,0 +1,19 @@
+{
+  "name": "BHD价格监控",
+  "version": "1.0.0",
+  "manifest_version": 2,
+  "description": "实时监听BHD价格变动",
+  "icons": {
+    "128": "bhd.png",
+    "16": "bhd.png",
+    "32": "bhd.png",
+    "48": "bhd.png",
+    "64": "bhd.png",
+    "96": "bhd.png"
+  },
+  "browser_action": {
+    "default_icon": "bhd.png",
+    "default_popup": "index.html"
+  },
+  "content_security_policy": "script-src 'self' https://example.com; object-src 'self'"
+}
