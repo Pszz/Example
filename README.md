@@ -19,4 +19,4 @@
 
 > [Search](http://www.piszz.com/Example/Search)： 静态页面简单快速搜索
 
-> [BHD Subet](http://www.piszz.com/Example/BHDSubet)：BHD行情
+> [BHD Subet](http://www.piszz.com/Example/BHD Subet)：BHD行情
