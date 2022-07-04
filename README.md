@@ -1,4 +1,4 @@
-## 存储个人写的一些小功能
+## Cases
 
 > CASE-Vue: Vue小案例
   - [CASE-MultipleSelect-Vue](http://www.piszz.com/Example/CASE-Vue/CASE-MultipleSelect-Vue)： VUE实现的多选下拉框功能
