@@ -1,22 +1,22 @@
 ## Cases
 
-> CASE-Vue: Vue小案例
-  - [CASE-MultipleSelect-Vue](http://www.piszz.com/Example/CASE-Vue/CASE-MultipleSelect-Vue)： VUE实现的多选下拉框功能
+> CASE-Vue: Vue MultipleSelect
+  - [CASE-MultipleSelect-Vue](http://www.piszz.com/Example/CASE-Vue/CASE-MultipleSelect-Vue)： 
 
-> laipi360: 以前做的项目
-  - [laipi360.com](http://www.piszz.com/Example/laipi360/laipi360)： PC 预览
-  - [m.laipi360.com](http://www.piszz.com/Example/laipi360/m.laipi360)： Mobile 预览
+> laipi360: 
+  - [laipi360.com](http://www.piszz.com/Example/laipi360/laipi360)： PC 
+  - [m.laipi360.com](http://www.piszz.com/Example/laipi360/m.laipi360)： Mobile 
 
-> CASE-Css3: CSS3实现的部分效果
-  - [Loading](http://www.piszz.com/Example/CASE-Css3/Loading)： Css3 进度Loading效果
-  - [Hover](http://www.piszz.com/Example/CASE-Css3/Hover)： Css3 鼠标Hover效果
+> CASE-Css3: CSS3
+  - [Loading](http://www.piszz.com/Example/CASE-Css3/Loading)： Css3 Loading
+  - [Hover](http://www.piszz.com/Example/CASE-Css3/Hover)： Css3 Mouse Hover
 
-> [English](http://www.piszz.com/Example/English)： 4级词汇表
+> [English](http://www.piszz.com/Example/English)： English-test
 
-> [Carousel](http://www.piszz.com/Example/Carousel)： 自适应宽度，左右翻页无缝效果
+> [Carousel](http://www.piszz.com/Example/Carousel)：Carousel
 
-> [Contacts](http://www.piszz.com/Example/Contacts)： 通讯录插件（可多选，可自定义扩展）
+> [Contacts](http://www.piszz.com/Example/Contacts)： Contacts
 
-> [Search](http://www.piszz.com/Example/Search)： 静态页面简单快速搜索
+> [Search](http://www.piszz.com/Example/Search)： Static Fast Search
 
-> [BHD Subet](http://www.piszz.com/Example/BHD%20Subet)：BHD行情
+> [BHD Subet](http://www.piszz.com/Example/BHD%20Subet)：BHD Prices(bitus)
